@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "metadata": {},
    "outputs": [
     {
@@ -18,6 +18,10 @@
     "if torch.backends.mps.is_available():\n",
     "    mps_device = torch.device(\"mps\")\n",
     "    x = torch.ones(1, device=mps_device)\n",
+    "    print (x)\n",
+    "elif torch.cuda.is_available():\n",
+    "    print (\"MPS device not found. Using CUDA device.\")\n",
+    "    x = torch.ones(1, device=\"cuda\")\n",
     "    print (x)\n",
     "else:\n",
     "    print (\"MPS device not found.\")"
